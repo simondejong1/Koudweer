@@ -1,0 +1,26 @@
+YAML
+name: Draai mijn script elk uur
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # Dit betekent: draai elk uur op minuut 0
+  workflow_dispatch:      # Hiermee kun je hem ook handmatig testen via een knop
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Code ophalen
+        uses: actions/checkout@v4
+
+      - name: Python instellen
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Pakketten installeren (indien nodig)
+        run: |
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: Script uitvoeren
+        run: KWR Check.py 
