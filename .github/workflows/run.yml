@@ -1,10 +1,11 @@
 YAML
+
 name: Draai mijn script elk uur
 
 on:
   schedule:
-    - cron: '0 * * * *'  # Dit betekent: draai elk uur op minuut 0
-  workflow_dispatch:      # Hiermee kun je hem ook handmatig testen via een knop
+    - cron: '0 * * * *'
+  workflow_dispatch:
 
 jobs:
   run-script:
@@ -23,4 +24,4 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       - name: Script uitvoeren
-        run: KWR Check.py 
+        run: python jouw_script_naam.py
