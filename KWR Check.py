@@ -100,7 +100,7 @@ if all_data:
     plt.savefig(grafiek_naam, dpi=300)
     print(f"Grafiek als afbeelding opgeslagen op Bureaublad: {grafiek_naam}")
 
-    plt.show()
+    plt.savefig('kwr.png')
 
 else:
     print("Geen data verzameld.")
